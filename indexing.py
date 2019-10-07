@@ -38,7 +38,7 @@ def unindex(indexing, outcome):
     action = [0]*N
     for i in range(N-1,-1,-1):
         action[i] = outcome%actions[i]
-        outcome   = outcome/actions[i]
+        outcome   = outcome//actions[i]
 
     return action
 
@@ -51,7 +51,7 @@ def unindexi(indexing, outcome, i):
     assert outcome >= 0 and outcome < M
     assert i >= 0 and i < N
     
-    return outcome/offsets[i]%actions[i]
+    return outcome//offsets[i]%actions[i]
 
 """
 outcome -> outcome, switching i's action to y
@@ -63,7 +63,7 @@ def reindex(indexing, outcome, i, y):
     assert i >= 0 and i < N
     assert y >= 0 and y < actions[i]
 
-    high = outcome/offsets[i]/actions[i]
+    high = outcome//offsets[i]//actions[i]
     low  = outcome%offsets[i]
     
     return (high*actions[i] + y)*offsets[i] + low

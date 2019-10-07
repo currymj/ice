@@ -47,7 +47,7 @@ instance -> dual weights
 def solve(inst, opt):
     (demonstrated, K, R) = inst
     W                    = R.shape[1]
-    deviations           = W/K
+    deviations           = W//K
 
     demonstrations = demonstrated*R
 
